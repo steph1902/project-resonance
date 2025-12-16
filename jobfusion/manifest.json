@@ -2,7 +2,7 @@
   "manifest_version": 3,
   "name": "Resonance",
   "version": "1.0.0",
-  "description": "Your Career Guardian - Analyze job postings against your profile for instant matching scores",
+  "description": "Where your skills and passions resonate. Analyze job postings against your profile for instant matching scores.",
   "permissions": [
     "storage",
     "activeTab",
@@ -37,8 +37,12 @@
         "https://weworkremotely.com/*",
         "https://remoteok.com/*"
       ],
-      "js": ["content.js"],
-      "css": ["content.css"]
+      "js": [
+        "content.js"
+      ],
+      "css": [
+        "content.css"
+      ]
     }
   ],
   "icons": {
