@@ -1,0 +1,18 @@
+# System Files
+.DS_Store
+Thumbs.db
+*.log
+
+# Dependencies
+node_modules/
+
+# Environment
+.env
+
+# Editor
+.vscode/
+.idea/
+
+# Artifacts/Temp
+.gemini/
+tmp/

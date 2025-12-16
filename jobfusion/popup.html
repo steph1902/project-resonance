@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resonance</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="popup.css">
+</head>
+
+<body>
+    <div class="popup-container">
+        <!-- Header -->
+        <header class="popup-header">
+            <div class="logo">
+                <span class="logo-icon">🎯</span>
+                <span class="logo-text">Resonance</span>
+            </div>
+            <a href="index.html" target="_blank" class="sources-link">Sources</a>
+        </header>
+
+        <!-- Tabs -->
+        <nav class="tabs">
+            <button class="tab active" data-tab="profile">Profile</button>
+            <button class="tab" data-tab="history">History</button>
+            <button class="tab" data-tab="settings">Settings</button>
+        </nav>
+
+        <!-- Profile Tab -->
+        <div class="tab-content active" id="profile-tab">
+            <div class="section">
+                <label class="label">Professional Summary</label>
+                <textarea id="profileSummary" class="input textarea"
+                    placeholder="Senior Full Stack Developer with 5+ years experience in React, Node.js, and cloud technologies..."></textarea>
+            </div>
+
+            <div class="section">
+                <label class="label">Skills</label>
+                <div class="tag-input-container">
+                    <div class="tags" id="skillsTags"></div>
+                    <input type="text" id="skillsInput" class="input" placeholder="Add skill and press Enter">
+                </div>
+            </div>
+
+            <div class="section">
+                <label class="label">Non-Negotiables</label>
+                <div class="preference-row">
+                    <label class="pref-label">Min Salary</label>
+                    <div class="salary-input">
+                        <span class="currency">$</span>
+                        <input type="number" id="minSalary" class="input" value="60000" step="5000">
+                    </div>
+                </div>
+                <div class="preference-row">
+                    <label class="pref-label">Work Mode</label>
+                    <select id="workMode" class="input select">
+                        <option value="remote">Remote Only</option>
+                        <option value="hybrid">Hybrid OK</option>
+                        <option value="any">Any</option>
+                    </select>
+                </div>
+            </div>
+
+            <button id="saveProfile" class="btn btn-primary">Save Profile</button>
+        </div>
+
+        <!-- History Tab -->
+        <div class="tab-content" id="history-tab">
+            <div class="history-list" id="historyList">
+                <div class="empty-state">
+                    <p>No jobs analyzed yet.</p>
+                    <p class="small">Visit a job posting page to start!</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Settings Tab -->
+        <div class="tab-content" id="settings-tab">
+            <div class="section">
+                <div class="setting-row">
+                    <div>
+                        <div class="setting-label">Auto-analyze</div>
+                        <div class="setting-desc">Automatically analyze job pages</div>
+                    </div>
+                    <label class="toggle">
+                        <input type="checkbox" id="autoAnalyze" checked>
+                        <span class="slider"></span>
+                    </label>
+                </div>
+            </div>
+
+            <div class="section">
+                <button id="clearHistory" class="btn btn-secondary">Clear History</button>
+                <button id="clearData" class="btn btn-danger">Clear All Data</button>
+            </div>
+
+            <div class="version">
+                Resonance v1.0.0
+            </div>
+        </div>
+    </div>
+
+    <script src="popup.js"></script>
+</body>
+
+</html>

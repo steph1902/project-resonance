@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resonance — Intelligence Sources</title>
+    <meta name="description"
+        content="Your Career Guardian - Track and analyze job intelligence sources across 80+ platforms worldwide.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <span class="logo-icon">🎯</span>
+                <span class="logo-text">Resonance</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="#" class="nav-link active">Browse</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#" class="nav-link btn-add" id="addSourceBtn">+ Add Source</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero">
+        <div class="hero-content">
+            <h1>Intelligence Sources</h1>
+            <p class="hero-subtitle">Currently tracking <span class="highlight" id="activeCount">86</span> active
+                platforms across the globe.</p>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-container">
+        <!-- Search & Filters -->
+        <div class="controls">
+            <div class="search-box">
+                <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <path d="m21 21-4.35-4.35"></path>
+                </svg>
+                <input type="text" id="searchInput" placeholder="Search by name, focus, or roles..."
+                    class="search-input">
+            </div>
+            <div class="filter-group">
+                <select id="statusFilter" class="filter-select">
+                    <option value="all">All Status</option>
+                    <option value="active">Active</option>
+                    <option value="inactive">Inactive</option>
+                </select>
+                <select id="regionFilter" class="filter-select">
+                    <option value="all">All Regions</option>
+                    <option value="Global">Global</option>
+                    <option value="US">US</option>
+                    <option value="Europe">Europe</option>
+                    <option value="UK">UK</option>
+                    <option value="Germany">Germany</option>
+                    <option value="Switzerland">Switzerland</option>
+                    <option value="APAC">APAC</option>
+                </select>
+                <select id="attributeFilter" class="filter-select">
+                    <option value="all">All Types</option>
+                    <option value="remote">Remote Only</option>
+                    <option value="freelance">Freelance</option>
+                </select>
+                <select id="difficultyFilter" class="filter-select">
+                    <option value="all">All Difficulty</option>
+                    <option value="2">★★ Easy</option>
+                    <option value="3">★★★ Medium</option>
+                    <option value="4">★★★★ Hard</option>
+                    <option value="5">★★★★★ Elite</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- Data Table -->
+        <div class="table-container">
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Region</th>
+                        <th>Focus Area</th>
+                        <th>Salary Range</th>
+                        <th>Difficulty</th>
+                        <th>Best For</th>
+                        <th>Attributes</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="tableBody">
+                    <!-- Data will be injected here -->
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Empty State -->
+        <div class="empty-state" id="emptyState" style="display: none;">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+            </svg>
+            <h3>No sources found</h3>
+            <p>Try adjusting your search or filter criteria.</p>
+        </div>
+    </main>
+
+    <!-- Add/Edit Modal -->
+    <div class="modal-overlay" id="modalOverlay">
+        <div class="modal">
+            <div class="modal-header">
+                <h2 id="modalTitle">Add New Source</h2>
+                <button class="modal-close" id="modalClose">&times;</button>
+            </div>
+            <form id="sourceForm" class="modal-form">
+                <div class="form-group">
+                    <label for="sourceName">Source Name</label>
+                    <input type="text" id="sourceName" required placeholder="e.g., RemoteOK">
+                </div>
+                <div class="form-group">
+                    <label for="sourceUrl">Website URL</label>
+                    <input type="url" id="sourceUrl" required placeholder="https://example.com">
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="sourceRegion">Region</label>
+                        <select id="sourceRegion" required>
+                            <option value="Global">Global</option>
+                            <option value="US">US</option>
+                            <option value="US (mostly)">US (mostly)</option>
+                            <option value="US/UK">US/UK</option>
+                            <option value="US/Global">US/Global</option>
+                            <option value="UK/US (expanding)">UK/US (expanding)</option>
+                            <option value="UK/EU">UK/EU</option>
+                            <option value="Europe">Europe</option>
+                            <option value="Germany">Germany</option>
+                            <option value="Switzerland">Switzerland</option>
+                            <option value="APAC Focus">APAC Focus</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="sourceStatus">Status</label>
+                        <select id="sourceStatus" required>
+                            <option value="active">Active</option>
+                            <option value="inactive">Inactive</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="sourceFocus">Focus Area</label>
+                    <input type="text" id="sourceFocus" required placeholder="e.g., AI/ML roles globally">
+                </div>
+                <div class="form-group">
+                    <label for="sourceBestFor">Best For Roles</label>
+                    <input type="text" id="sourceBestFor" placeholder="e.g., Full Stack, Backend, AI Engineers">
+                </div>
+                <div class="form-row-3">
+                    <div class="form-group">
+                        <label for="sourceSalaryMin">Min Salary ($)</label>
+                        <input type="number" id="sourceSalaryMin" placeholder="60000">
+                    </div>
+                    <div class="form-group">
+                        <label for="sourceSalaryMax">Max Salary ($)</label>
+                        <input type="number" id="sourceSalaryMax" placeholder="200000">
+                    </div>
+                    <div class="form-group">
+                        <label for="sourceDifficulty">Difficulty</label>
+                        <select id="sourceDifficulty">
+                            <option value="2">★★ Easy</option>
+                            <option value="3" selected>★★★ Medium</option>
+                            <option value="4">★★★★ Hard</option>
+                            <option value="5">★★★★★ Elite</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Attributes</label>
+                    <div class="checkbox-group">
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="attrRemote" checked>
+                            <span>Remote</span>
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="attrFreelance">
+                            <span>Freelance</span>
+                        </label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="sourceNotes">Notes (Optional)</label>
+                    <input type="text" id="sourceNotes" placeholder="Any special notes about this source...">
+                </div>
+                <div class="form-actions">
+                    <button type="button" class="btn btn-secondary" id="cancelBtn">Cancel</button>
+                    <button type="submit" class="btn btn-primary">Save Source</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Delete Confirmation Modal -->
+    <div class="modal-overlay" id="deleteModalOverlay">
+        <div class="modal modal-small">
+            <div class="modal-header">
+                <h2>Delete Source</h2>
+                <button class="modal-close" id="deleteModalClose">&times;</button>
+            </div>
+            <div class="modal-body">
+                <p>Are you sure you want to delete <strong id="deleteSourceName"></strong>?</p>
+                <p class="text-muted">This action cannot be undone.</p>
+            </div>
+            <div class="form-actions">
+                <button type="button" class="btn btn-secondary" id="deleteCancelBtn">Cancel</button>
+                <button type="button" class="btn btn-danger" id="deleteConfirmBtn">Delete</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div class="toast" id="toast">
+        <span class="toast-message" id="toastMessage"></span>
+    </div>
+
+    <script src="data.js"></script>
+    <script src="app.js"></script>
+</body>
+
+</html>

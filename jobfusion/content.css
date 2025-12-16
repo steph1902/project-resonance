@@ -1,0 +1,249 @@
+/* Resonance - Content Script Styles
+   Widget that appears on job posting pages */
+
+#resonance-widget {
+    --r-primary: #c47d5c;
+    --r-bg: #faf8f5;
+    --r-surface: #ffffff;
+    --r-border: rgba(139, 115, 85, 0.15);
+    --r-text: #3d3630;
+    --r-text-secondary: #6b5f53;
+    --r-success: #6b9b6b;
+    --r-warning: #c9a45c;
+    --r-danger: #c46b5c;
+
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 999999;
+}
+
+/* Badge */
+.resonance-badge {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 16px;
+    background: var(--r-surface);
+    border: 1px solid var(--r-border);
+    border-radius: 50px;
+    box-shadow: 0 4px 20px rgba(139, 115, 85, 0.15);
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.resonance-badge:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 24px rgba(139, 115, 85, 0.2);
+}
+
+.resonance-badge.high {
+    border-color: var(--r-success);
+    background: linear-gradient(135deg, #f0f7f0 0%, var(--r-surface) 100%);
+}
+
+.resonance-badge.medium {
+    border-color: var(--r-warning);
+    background: linear-gradient(135deg, #fdf8f0 0%, var(--r-surface) 100%);
+}
+
+.resonance-badge.low {
+    border-color: var(--r-danger);
+    background: linear-gradient(135deg, #fdf0f0 0%, var(--r-surface) 100%);
+}
+
+.resonance-icon {
+    font-size: 18px;
+}
+
+.resonance-text {
+    font-weight: 600;
+    font-size: 14px;
+    color: var(--r-text);
+}
+
+/* Panel */
+.resonance-panel {
+    position: absolute;
+    bottom: 60px;
+    right: 0;
+    width: 320px;
+    background: var(--r-surface);
+    border: 1px solid var(--r-border);
+    border-radius: 12px;
+    box-shadow: 0 8px 32px rgba(139, 115, 85, 0.2);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: all 0.2s ease;
+}
+
+.resonance-panel.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.resonance-panel-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 16px;
+    border-bottom: 1px solid var(--r-border);
+    background: #f5f0e8;
+    border-radius: 12px 12px 0 0;
+}
+
+.resonance-panel-header span {
+    font-weight: 600;
+    font-size: 14px;
+    color: var(--r-text);
+}
+
+.resonance-close {
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    background: transparent;
+    font-size: 18px;
+    color: var(--r-text-secondary);
+    cursor: pointer;
+    border-radius: 4px;
+    transition: all 0.15s ease;
+}
+
+.resonance-close:hover {
+    background: rgba(139, 115, 85, 0.1);
+    color: var(--r-text);
+}
+
+.resonance-panel-body {
+    padding: 16px;
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+/* Score Display */
+.resonance-score-display {
+    text-align: center;
+    padding: 20px;
+    margin-bottom: 16px;
+    border-radius: 10px;
+    background: var(--r-bg);
+}
+
+.resonance-score-display.high {
+    background: linear-gradient(135deg, #e8f5e8 0%, #f0f7f0 100%);
+}
+
+.resonance-score-display.medium {
+    background: linear-gradient(135deg, #fdf3e0 0%, #fdf8f0 100%);
+}
+
+.resonance-score-display.low {
+    background: linear-gradient(135deg, #fce8e8 0%, #fdf0f0 100%);
+}
+
+.resonance-score-value {
+    font-size: 36px;
+    font-weight: 700;
+    color: var(--r-text);
+}
+
+.resonance-score-display.high .resonance-score-value {
+    color: var(--r-success);
+}
+
+.resonance-score-display.medium .resonance-score-value {
+    color: var(--r-warning);
+}
+
+.resonance-score-display.low .resonance-score-value {
+    color: var(--r-danger);
+}
+
+.resonance-score-label {
+    font-size: 12px;
+    color: var(--r-text-secondary);
+    margin-top: 4px;
+}
+
+/* Sections */
+.resonance-section {
+    margin-bottom: 14px;
+}
+
+.resonance-section-title {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--r-text-secondary);
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Tags */
+.resonance-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+.resonance-tag {
+    display: inline-block;
+    padding: 4px 10px;
+    font-size: 12px;
+    font-weight: 500;
+    border-radius: 20px;
+    background: rgba(196, 125, 92, 0.1);
+    color: var(--r-primary);
+}
+
+.resonance-tags.green .resonance-tag {
+    background: rgba(107, 155, 107, 0.12);
+    color: var(--r-success);
+}
+
+.resonance-tags.yellow .resonance-tag {
+    background: rgba(201, 164, 92, 0.12);
+    color: #8b7030;
+}
+
+.resonance-tags.red .resonance-tag {
+    background: rgba(196, 107, 92, 0.12);
+    color: var(--r-danger);
+}
+
+/* List */
+.resonance-list {
+    font-size: 13px;
+    color: var(--r-text-secondary);
+    line-height: 1.6;
+}
+
+/* Loading */
+.resonance-loading {
+    text-align: center;
+    padding: 30px;
+    color: var(--r-text-secondary);
+    font-size: 13px;
+}
+
+/* Error */
+.resonance-error {
+    text-align: center;
+    padding: 20px;
+    color: var(--r-text-secondary);
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+.resonance-error p:first-child {
+    color: var(--r-danger);
+    font-weight: 500;
+    margin-bottom: 8px;
+}
