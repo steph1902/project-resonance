@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="jobfusion/icons/icon128.png" alt="Resonance Logo" width="80" height="80">
+  <img src="resonance/icons/icon128.png" alt="Resonance Logo" width="80" height="80">
 </p>
 
 <h1 align="center">Resonance</h1>
@@ -58,7 +58,7 @@
 
 4. **Load the Extension**
    - Click **"Load unpacked"**
-   - Select the `jobfusion/` folder from the cloned repository
+   - Select the `resonance/` folder from the cloned repository
 
 5. **Start Resonating!**
    Click the 🎯 icon in your toolbar to set up your profile
@@ -100,7 +100,7 @@ Final Score = (Skill Match × 40%) + (Preference Match × 40%) - Red Flag Penalt
 ```
 project-resonance/
 │
-├── 📂 jobfusion/                 # Chrome Extension
+├── 📂 resonance/                 # Chrome Extension
 │   ├── manifest.json             # Extension configuration (Manifest V3)
 │   ├── background.js             # Service worker with matching algorithm
 │   ├── content.js                # Injected into job pages
